@@ -16,9 +16,30 @@ document.addEventListener('DOMContentLoaded', () => {
   drawerBackdrop?.addEventListener('click', closeDrawer);
   drawer?.querySelectorAll('a').forEach((a) => a.addEventListener('click', closeDrawer));
 
-  document.querySelectorAll('.lang-select').forEach((select) => {
-    select.addEventListener('change', (e) => {
-      window.location.href = e.target.value;
+codex/create-multilingual-static-website-for-drillmont-capital-3wqto9
+  document.querySelectorAll('.lang-switcher').forEach((switcher) => {
+    const trigger = switcher.querySelector('.lang-trigger');
+    const links = switcher.querySelectorAll('.lang-menu a');
+
+    trigger?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = switcher.classList.toggle('open');
+      trigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    links.forEach((link) => {
+      link.addEventListener('click', () => {
+        switcher.classList.remove('open');
+        trigger?.setAttribute('aria-expanded', 'false');
+      });
+    });
+  });
+
+  document.addEventListener('click', () => {
+    document.querySelectorAll('.lang-switcher.open').forEach((switcher) => {
+      switcher.classList.remove('open');
+      switcher.querySelector('.lang-trigger')?.setAttribute('aria-expanded', 'false');
+
     });
   });
 
