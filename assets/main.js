@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   drawerBackdrop?.addEventListener('click', closeDrawer);
   drawer?.querySelectorAll('a').forEach((a) => a.addEventListener('click', closeDrawer));
 
+codex/create-multilingual-static-website-for-drillmont-capital-3wqto9
   document.querySelectorAll('.lang-switcher').forEach((switcher) => {
     const trigger = switcher.querySelector('.lang-trigger');
     const links = switcher.querySelectorAll('.lang-menu a');
@@ -38,6 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.lang-switcher.open').forEach((switcher) => {
       switcher.classList.remove('open');
       switcher.querySelector('.lang-trigger')?.setAttribute('aria-expanded', 'false');
+
     });
   });
 
